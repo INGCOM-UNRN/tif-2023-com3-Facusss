@@ -1,8 +1,9 @@
 #CONVERSIONES (3)
 from func_globales import numero_valido
+# --------- Func. Conversiones ---------
 def a_octal():
+    # --------- Decimal --> Octal ---------  
     
-    #DECIMAL A OCTAL
     print("DECIMAL ---> OCTAL")
     num1 = (input("ingrese decimal: "))
     num1 = numero_valido(num1) # Validar numero.
@@ -18,8 +19,8 @@ def a_octal():
     print(f"El octal es: {octal}")
 
 def a_binario():
-    
-    #DECIMAL A BINARIO
+    # --------- Decimal --> Binario ---------
+
     print("DECIMAL ---> BINARIO")
     num1 = int(input("Ingrese decimal: "))
     num1 = numero_valido(num1) # Validar numero.
@@ -32,9 +33,10 @@ def a_binario():
         
     binario += str(num1) # Decimal a Str.
     binario = binario [::-1] #Invertir cadena.
-    print("El binario es", binario)
+    print(f"El binario es: {binario}")
 
 def a_hexa():
+    # --------- Decimal --> Hexadecimal ---------
     
     #Diccionario de valores hexadecimales.
     valores_hexa = {0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 
@@ -54,16 +56,17 @@ def a_hexa():
         
         restos.append(resto) # Agregar el resto a lista restos.
         
-    restos.append(num1)
+    restos.append(num1) # Agrega cociente a restos
     
     for r in (restos): # Leer lista residuos.
         hexadecimales += valores_hexa[r]
         
         
-        num_hexa = hexadecimales [::-1] # Join elimina corchetes y comas de la lista
+        num_hexa = hexadecimales [::-1] # Invertir cadena.
         
     
-    print(num_hexa)
+    print(f"El hexadecimal es: {num_hexa}")
+    
 
 # --------- Menú de Conversiones ---------
 
@@ -85,10 +88,10 @@ def Calculadora_Conversion():
     
     if opcion == 1:
             a_octal()
+              
     elif opcion == 2:
             a_binario()
+              
     elif opcion == 3:
             a_hexa()
-    else:
-        pass    
-    
+            
