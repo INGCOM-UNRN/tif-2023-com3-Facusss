@@ -1,36 +1,63 @@
 from func_globales import numero_valido, operador_valido, operacion
 
+
+#
+# ----------- LOGICA ----------------
+#
+
 def pedir_fracc()->tuple:
     """
         Pide el numerador y denominador 
-        Verifica que ambos sean numeros validos, si no lo son los vuelve a pedir 
 
-        Luego toma el largo del numero con mas digitos y lo guarda para el ancho de la barra 
+        Verifica que sean diferentes de 0 y que sean enteros
+        si no lo son los vuelve a pedir  hasta que sean validos
         
-        Retorna una tupla con el siguiente orden:
-        (numerador, denominador, ancho de barra)  
+        Retorna una fracc con el siguiente orden:
+            (numerador, denominador)  
     """
+    def es_cero_float(nro, parte="numerador"):
+        """
+            Verifica si el numero es 0 o float y lo vuelve a pedir hasta que no lo sean
+            parte es para cambiar el mensaje de error, debe ser: numerador o denominador 
+        """
+        
+        error_es_cero={ "numerador": "Error, esta sumando 0",
+                       "denominador": "Error, division por 0"}
+
+        error_es_float={"numerador": "Ingrese un numerador diferente, debe ser entero",
+                        "denominador": "Ingrese un denominador diferente, debe ser entero"}
+
+        nro_no_valido=True
+        while nro_no_valido:
+
+            if nro==0:
+                print(f"\n {error_es_cero[parte]} \n")
+                nro= numero_valido( input(f"Reingrese el {parte}: ") )
+            
+            elif type(nro) == float:
+                print(f"\n {error_es_float[parte]} \n")
+                nro= numero_valido( input(f"Reingrese el {parte}: ") )
+            
+            else:
+                nro_no_valido= False
+        
+        return nro
+
     numerador= input("Ingrese el numerador: ")
     numerador= numero_valido(numerador)
 
-    while numerador==0:
-        print("Ingrese un denominador diferente, no vaya a sumar un 0")
-        numerador= input("Reingrese el numerador: ")
-        numerador= numero_valido(numerador)
+    numerador= es_cero_float(numerador, "numerador")
             
     denominador= input("Ingrese el denominador: ")
-    denominador=numero_valido(denominador)
+    denominador= numero_valido(denominador)
         
-    while denominador==0:
-        print("Error, division por 0")
-        denominador= input("Reingrese el denominador: ")
-        denominador=numero_valido(denominador)
+    denominador= es_cero_float(denominador, "denominador")
 
     return (numerador, denominador)
 
 
-def simplificado(tupla):
-    numerador, denominador= tupla
+def simplificado(fracc):
+    numerador, denominador= fracc
     resultado=0
 
     if denominador > numerador:
@@ -41,30 +68,29 @@ def simplificado(tupla):
         grande=numerador
         chico=denominador
 
-    #cociente= grande//chico
-    resto= grande%chico
-
-    #  grande== chico*cociente + resto
-    divisor=chico
+    if chico !=0:
+        resto= grande%chico 
+        divisor=chico 
+    else:
+        resto=0
+        divisor=grande
 
     nuevo_grande=chico
     nuevo_chico=resto
 
     while resto!=0:
-        #cociente= nuevo_grande//nuevo_chico
+
         resto= nuevo_grande%nuevo_chico
         
-    # nuevo_grande == nuevo_chico*cociente + resto
         divisor=nuevo_chico
 
         nuevo_grande=nuevo_chico
         nuevo_chico=resto
     
-    resultado= ( int(tupla[0]/divisor), int(tupla[1]/divisor) )
+    resultado= ( int(fracc[0]/divisor), int(fracc[1]/divisor) )
     
     return resultado
-        
-
+    
 
 def operar_fracciones(fracc1, operador, fracc2):
     """
@@ -83,13 +109,14 @@ def operar_fracciones(fracc1, operador, fracc2):
         denom_final= denom1*denom2
         numer1= numer1*denom2
         numer2= numer2*denom1
+
         numer_final= operacion(numer1, operador, numer2)
     
     elif divide:
         numer_final= numer1 * denom2  
         denom_final= denom1 * numer2  
 
-    else: # Si no suma, resta ni divide Multiplica 
+    else: # Si no suma, resta o divide Multiplica 
         numer_final= operacion(numer1, operador, numer2)
         denom_final= operacion(denom1, operador, denom2)
 
@@ -101,7 +128,14 @@ def operar_fracciones(fracc1, operador, fracc2):
     return (numer_final, denom_final)
 
 
-   
+#
+# --------------- Termina la Logica -------------------------
+#
+
+# 
+# --------------- INTERFAZ USUARIO --------------------------
+#  
+
 def fracc_imprimible(fraccion):
     """
         Recibe una fraccion con numerador y denominador
@@ -114,7 +148,7 @@ def fracc_imprimible(fraccion):
                         2 es la barra que va en medio de la fraccion        ───
                         3 es el el denominador                              den
     
-        Devuelve una tupla con los 3 renglones, que dan facilidad para imprimir fracciones
+        Devuelve una fracc con los 3 renglones, que dan facilidad para imprimir fracciones
 
     """
     
@@ -149,12 +183,10 @@ def fracc_imprimible(fraccion):
     
     return (renglon1, renglon2, renglon3) 
 
-
-
  
 def UI_fraccion(fracc1=("num", "den"), oper="=", fracc2=("x","y"), result=("", "")):
     """
-        Recibe tuplas con fracciones, de la forma (numerador, denominador), 
+        Recibe fraccs con fracciones, de la forma (numerador, denominador), 
         Result debe ser fraccion, oper es un operador, meramente decorativo
         
         Imprime en pantalla la calculadora, las fracciones deberian verse:
@@ -189,8 +221,12 @@ def UI_fraccion(fracc1=("num", "den"), oper="=", fracc2=("x","y"), result=("", "
 
         |.| |0|
     """)
- 
+# --------------- Terminan los procesos de Interfaz --------------
 
+
+#-----------------------------------------------------------------
+#                          CALCULADORA
+#-----------------------------------------------------------------
 
 
 def Calculadora_fracciones():
@@ -214,11 +250,11 @@ def Calculadora_fracciones():
 
         fracc1=resultado
 
-        print(f"""Esta operando con: numerador: {fracc1[0]}
-                 denominador: {fracc1[1]}                  """)
+        print(f"""Esta operando con:    numerador: {fracc1[0]}
+                     denominador: {fracc1[1]}
+            """)
 
         operador= input("Ingrese el operador: ")
         operador= operador_valido(operador)
 
     UI_fraccion(fracc1, " ", ("", ""), simplificado(fracc1))
-
