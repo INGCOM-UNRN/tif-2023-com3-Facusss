@@ -22,7 +22,7 @@ def a_binario():
     # --------- Decimal --> Binario ---------
 
     print("DECIMAL ---> BINARIO")
-    num1 = int(input("Ingrese decimal: "))
+    num1 = (input("Ingrese decimal: "))
     num1 = numero_valido(num1) # Validar numero.
     binario = "" # Asignar valor (UnboundLocalError). 
     
