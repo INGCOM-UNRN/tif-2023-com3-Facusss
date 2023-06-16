@@ -6,7 +6,12 @@ def a_octal():
     
     print("DECIMAL ---> OCTAL")
     num1 = (input("ingrese decimal: "))
-    num1 = numero_valido(num1) # Validar numero.
+    num1 = numero_valido(num1) # Validar numero.(Caracteres)
+    
+    while not ent_pos(num1): # Validar numero. (Entero positivo)
+        num1 = input("Ingrese numero entero positivo: ")
+        num1 = numero_valido(num1) 
+    
     octal = "" # Asignar valor (UnboundLocalError). 
     
     while num1 >= 8: # Verificacion.
@@ -23,7 +28,12 @@ def a_binario():
 
     print("DECIMAL ---> BINARIO")
     num1 = (input("Ingrese decimal: "))
-    num1 = numero_valido(num1) # Validar numero.
+    num1 = numero_valido(num1) # Validar numero.(Caracteres)
+    
+    while not ent_pos(num1):# Validar numero. (Entero positivo)
+        num1 = input("Ingrese numero entero positivo: ")
+        num1 = numero_valido(num1) 
+    
     binario = "" # Asignar valor (UnboundLocalError). 
     
     while num1 >= 2: # Verificacion.
@@ -44,7 +54,11 @@ def a_hexa():
     print("DECIMAL ---> HEXA")
 
     num1 = input("ingrese decimal: ")
-    num1 = numero_valido(num1) # Validar numero.
+    num1 = numero_valido(num1) # Validar numero.(Caracteres)
+    
+    while not ent_pos(num1):# Validar numero. (Entero positivo)
+        num1 = input("Ingrese numero entero positivo: ")
+        num1 = numero_valido(num1) 
     
     restos = [] # Lista para restos 
     hexadecimales = "" # Guardar valores hexa.
@@ -95,3 +109,8 @@ def Calculadora_Conversion():
     elif opcion == 3:
             a_hexa()
             
+def ent_pos(num1):
+    if type(num1) == int and num1 > 0:
+        return True
+    else:
+        return False
