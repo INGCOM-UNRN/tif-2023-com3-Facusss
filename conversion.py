@@ -108,7 +108,8 @@ def Calculadora_Conversion():
               
     elif opcion == 3:
             a_hexa()
-            
+
+# --------- Validar numero entero positivo ---------           
 def ent_pos(num1):
     if type(num1) == int and num1 > 0:
         return True
