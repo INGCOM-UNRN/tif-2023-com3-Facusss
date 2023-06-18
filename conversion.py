@@ -1,4 +1,4 @@
-#CONVERSIONES (3)
+jajaja#CONVERSIONES (3)
 from func_globales import numero_valido
 # --------- Func. Conversiones ---------
 def a_octal():
@@ -111,7 +111,7 @@ def Calculadora_Conversion():
 
 # --------- Validar numero entero positivo ---------           
 def ent_pos(num1):
-    if type(num1) == int and num1 > 0:
+    if type(num1) == int and num1 >= 0:
         return True
     else:
         return False
