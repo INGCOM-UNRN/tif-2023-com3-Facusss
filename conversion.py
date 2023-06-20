@@ -4,8 +4,8 @@ from func_globales import numero_valido
 def a_octal():
     # --------- Decimal --> Octal ---------  
     
-    print("DECIMAL ---> OCTAL")
     num1 = (input("ingrese decimal: "))
+    n_interfaz = num1
     num1 = numero_valido(num1) # Validar numero.(Caracteres)
     
     while not ent_pos(num1): # Validar numero. (Entero positivo)
@@ -21,13 +21,20 @@ def a_octal():
     
     octal += str(num1) # Decimal a Str.
     octal = octal [::-1] #Invertir cadena.
-    print(f"El octal es: {octal}")
+    
+    # Mostrar conversion.    
+    print(f"""
+          
+        --- DECIMAL [{n_interfaz}] ---> HEXADECIMAL [{octal}] ---
+                 
+        """)
+    #print(f"El octal es: {octal}")
 
 def a_binario():
     # --------- Decimal --> Binario ---------
 
-    print("DECIMAL ---> BINARIO")
     num1 = (input("Ingrese decimal: "))
+    n_interfaz = num1
     num1 = numero_valido(num1) # Validar numero.(Caracteres)
     
     while not ent_pos(num1):# Validar numero. (Entero positivo)
@@ -43,7 +50,14 @@ def a_binario():
         
     binario += str(num1) # Decimal a Str.
     binario = binario [::-1] #Invertir cadena.
-    print(f"El binario es: {binario}")
+    
+    # Mostrar conversion.    
+    print(f"""
+          
+        --- DECIMAL [{n_interfaz}] ---> HEXADECIMAL [{binario}] ---
+                 
+        """)
+    #print(f"El binario es: {binario}")
 
 def a_hexa():
     # --------- Decimal --> Hexadecimal ---------
@@ -51,9 +65,9 @@ def a_hexa():
     #Diccionario de valores hexadecimales.
     valores_hexa = {0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 
                     8: "8", 9: "9", 10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"} 
-    print("DECIMAL ---> HEXA")
 
-    num1 = input("ingrese decimal: ")
+    num1 = input("ingrese decimal: ") # Ingresar decimal.
+    n_interfaz = num1 # Variable para la interfaz.
     num1 = numero_valido(num1) # Validar numero.(Caracteres)
     
     while not ent_pos(num1):# Validar numero. (Entero positivo)
@@ -77,9 +91,14 @@ def a_hexa():
         
         
         num_hexa = hexadecimales [::-1] # Invertir cadena.
-        
     
-    print(f"El hexadecimal es: {num_hexa}")
+    # Mostrar conversion.    
+    print(f"""
+          
+        --- DECIMAL [{n_interfaz}] ---> HEXADECIMAL [{num_hexa}] ---
+                 
+        """)
+    
     
 
 # --------- Menú de Conversiones ---------
@@ -88,6 +107,7 @@ def Calculadora_Conversion():
     print("""
           
           ----- MENÚ DE CONVERSIONES -----
+          
                 1. Decimal A Octal.
                 2. Decimal A Binario.
                 3. Decimal A Hexadecimal.
