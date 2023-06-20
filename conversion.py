@@ -1,4 +1,4 @@
-jajaja#CONVERSIONES (3)
+#CONVERSIONES (3)
 from func_globales import numero_valido
 # --------- Func. Conversiones ---------
 def a_octal():
