@@ -5,12 +5,13 @@ def a_octal():
     # --------- Decimal --> Octal ---------  
     
     num1 = (input("ingrese decimal: "))
-    n_interfaz = num1
     num1 = numero_valido(num1) # Validar numero.(Caracteres)
     
     while not ent_pos(num1): # Validar numero. (Entero positivo)
         num1 = input("Ingrese numero entero positivo: ")
-        num1 = numero_valido(num1) 
+        num1 = numero_valido(num1)
+    
+    n_interfaz = num1 # Variable para interfaz.     
     
     octal = "" # Asignar valor (UnboundLocalError). 
     
@@ -34,12 +35,13 @@ def a_binario():
     # --------- Decimal --> Binario ---------
 
     num1 = (input("Ingrese decimal: "))
-    n_interfaz = num1
     num1 = numero_valido(num1) # Validar numero.(Caracteres)
     
     while not ent_pos(num1):# Validar numero. (Entero positivo)
         num1 = input("Ingrese numero entero positivo: ")
         num1 = numero_valido(num1) 
+    
+    n_interfaz = num1 # Variable para interfaz.
     
     binario = "" # Asignar valor (UnboundLocalError). 
     
@@ -67,12 +69,13 @@ def a_hexa():
                     8: "8", 9: "9", 10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"} 
 
     num1 = input("ingrese decimal: ") # Ingresar decimal.
-    n_interfaz = num1 # Variable para la interfaz.
     num1 = numero_valido(num1) # Validar numero.(Caracteres)
     
     while not ent_pos(num1):# Validar numero. (Entero positivo)
         num1 = input("Ingrese numero entero positivo: ")
         num1 = numero_valido(num1) 
+    
+    n_interfaz = num1 # Variable para interfaz.    
     
     restos = [] # Lista para restos 
     hexadecimales = "" # Guardar valores hexa.
