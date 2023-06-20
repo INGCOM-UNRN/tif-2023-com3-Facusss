@@ -11,23 +11,40 @@ print("""
 
                 1 - Clasica
                 2 - Fracciones 
-                3 - COnversiones
+                3 - Conversiones
                 4 - Salir / off
 
     """)
 opcion= num_val( input("     Ingrese el numero de calculadora:  ") )
-while opcion != 1 and opcion != 2 and opcion != 3 and opcion != 4:
-        print("Opción no válida, ingrese nuevamente.")
+
+
+while opcion !=4:
+
+    while opcion<=0 or opcion>=5:
+        print("\n    Opción no válida, ingrese nuevamente. \n")
         opcion= num_val( input("     Ingrese el numero de calculadora:  ") )
-while opcion != 4:
-    
-    if opcion == 1:    
+
+    if opcion == 1:
         Calculadora_Clasica()
+
     elif opcion == 2:
         Calculadora_fracciones()
+        
     elif opcion == 3:
         Calculadora_Conversion()
         
-    
+    print("""   
+        ---- MENU CALCULADORAS ----
 
-print("----- OFF -----")
+                1 - Clasica
+                2 - Fracciones 
+                3 - Conversiones
+                4 - Salir / off
+    """)
+
+    opcion= num_val( input("     Ingrese el numero de calculadora:  ") )
+
+
+print("""
+        ----- OFF -----
+        """)
