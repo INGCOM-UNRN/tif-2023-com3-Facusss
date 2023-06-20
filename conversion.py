@@ -120,7 +120,7 @@ def Calculadora_Conversion():
     
     opcion= numero_valido(input("Ingrese conversión: "))
     while opcion != 1 and opcion != 2 and opcion != 3:
-        print("Opción no válida, ingrese nuevamente.")
+        print("Opcíón no válida, ingrese nuevamente.")
         opcion= numero_valido(input("Ingrese conversión: "))
     
     if opcion == 1:
@@ -131,6 +131,7 @@ def Calculadora_Conversion():
               
     elif opcion == 3:
             a_hexa()
+   
 
 # --------- Validar numero entero positivo ---------           
 def ent_pos(num1):
