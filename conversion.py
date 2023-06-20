@@ -25,7 +25,7 @@ def a_octal():
     # Mostrar conversion.    
     print(f"""
           
-        --- DECIMAL [{n_interfaz}] ---> HEXADECIMAL [{octal}] ---
+        --- DECIMAL [{n_interfaz}] ---> OCTAL [{octal}] ---
                  
         """)
     #print(f"El octal es: {octal}")
@@ -54,7 +54,7 @@ def a_binario():
     # Mostrar conversion.    
     print(f"""
           
-        --- DECIMAL [{n_interfaz}] ---> HEXADECIMAL [{binario}] ---
+        --- DECIMAL [{n_interfaz}] ---> BINARIO [{binario}] ---
                  
         """)
     #print(f"El binario es: {binario}")
