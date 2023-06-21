@@ -10,7 +10,7 @@ def a_octal():
     while not ent_pos(num1): # Validar numero. (Entero positivo)
         num1 = input("Ingrese numero entero positivo: ")
         num1 = numero_valido(num1)
-    
+     
     n_interfaz = num1 # Variable para interfaz.     
     
     octal = "" # Asignar valor (UnboundLocalError). 
@@ -18,9 +18,9 @@ def a_octal():
     while num1 >= 8: # Verificacion.
         resto = num1 % 8 # Sacar resto.
         num1 = num1 // 8 # Sacar cociente.
-        octal += str(resto) # Resto a Str.
+        octal += str(resto) # Agregar resto a octal. (str)
     
-    octal += str(num1) # Decimal a Str.
+    octal += str(num1) # Agregar decimal a octal. (str)
     octal = octal [::-1] #Invertir cadena.
     
     # Mostrar conversion.    
@@ -29,7 +29,6 @@ def a_octal():
         --- DECIMAL [{n_interfaz}] ---> OCTAL [{octal}] ---
                  
         """)
-    #print(f"El octal es: {octal}")
 
 def a_binario():
     # --------- Decimal --> Binario ---------
@@ -48,9 +47,9 @@ def a_binario():
     while num1 >= 2: # Verificacion.
         resto = num1 % 2 # Sacar resto.
         num1 = num1 // 2 # Sacar cociente.
-        binario += str(resto) # Resto a Str.
+        binario += str(resto) # Agregar resto a binario. (str)
         
-    binario += str(num1) # Decimal a Str.
+    binario += str(num1) # Agregar decimal a binario. (str)
     binario = binario [::-1] #Invertir cadena.
     
     # Mostrar conversion.    
@@ -59,7 +58,6 @@ def a_binario():
         --- DECIMAL [{n_interfaz}] ---> BINARIO [{binario}] ---
                  
         """)
-    #print(f"El binario es: {binario}")
 
 def a_hexa():
     # --------- Decimal --> Hexadecimal ---------
@@ -101,8 +99,6 @@ def a_hexa():
         --- DECIMAL [{n_interfaz}] ---> HEXADECIMAL [{num_hexa}] ---
                  
         """)
-    
-    
 
 # --------- Menú de Conversiones ---------
 
