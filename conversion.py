@@ -75,8 +75,10 @@ def a_hexa():
     
     n_interfaz = num1 # Variable para interfaz.    
     
-    restos = [] # Lista para restos 
+    restos = [] # Lista para restos
+    
     hexadecimales = "" # Guardar valores hexa.
+    
     while num1 >= 16: # Verificacion
         
         resto = num1 % 16 # Sacar resto. 
@@ -89,9 +91,8 @@ def a_hexa():
     
     for r in (restos): # Leer lista residuos.
         hexadecimales += valores_hexa[r]
-        
-        
-        num_hexa = hexadecimales [::-1] # Invertir cadena.
+           
+    num_hexa = hexadecimales [::-1] # Invertir cadena.
     
     # Mostrar conversion.    
     print(f"""
