@@ -1,4 +1,3 @@
-#CONVERSIONES (3)
 from func_globales import numero_valido
 # --------- Func. Conversiones ---------
 def a_octal():
@@ -116,6 +115,8 @@ def Calculadora_Conversion():
         """)
     
     opcion= numero_valido(input("Ingrese conversión: "))
+    
+    # Verificar opción.
     while opcion != 1 and opcion != 2 and opcion != 3:
         print("Opcíón no válida, ingrese nuevamente.")
         opcion= numero_valido(input("Ingrese conversión: "))
