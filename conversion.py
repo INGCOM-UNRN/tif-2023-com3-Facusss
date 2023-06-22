@@ -88,7 +88,7 @@ def a_hexa():
         
     restos.append(num1) # Agrega cociente a restos
     
-    for r in (restos): # Leer lista residuos.
+    for r in (restos): # Leer lista restos.
         hexadecimales += valores_hexa[r]
            
     num_hexa = hexadecimales [::-1] # Invertir cadena.
