@@ -1,4 +1,3 @@
-
 #
 # --------- Funciones de Validaciones ---------
 #
@@ -17,10 +16,16 @@ def numero_valido(num):
         except ValueError:
             num=input("Error, tiene que ingresar un numero: ")
         else:
-            num=float(num)
+            aux=float(num)
             
-            if num%1 == 0:
-                num=int(num)
+            if aux%1 == 0:
+                if type(num)==str and ".0" in num:
+                    num= int(aux)
+                else:
+                    num=int(num)
+
+            else:
+                num= float(num)
 
             loop=False
 
@@ -39,8 +44,8 @@ def operador_valido(operador):
     operadores=["+","-","x", "/","="]        
     
     while not (operador in operadores):
-        print("El operador debe ser |+|, |-|, |x|(equis), |/| o |=| ")
-        operador=input("\n Reingrese operador: ")# \n hace un salto de linea
+        print("El operador debe ser |+|, |-|, |x|(equis), |/| o |=| \n")
+        operador=input(" Reingrese operador: ")# \n hace un salto de linea
 
     return operador
 
