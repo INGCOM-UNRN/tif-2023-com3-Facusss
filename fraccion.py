@@ -21,7 +21,7 @@ def pedir_fracc()->tuple:
             parte es para cambiar el mensaje de error, debe ser: numerador o denominador 
         """
         
-        error_es_cero={ "numerador": "Error, esta sumando 0",
+        error_es_cero={ "numerador": "Error, esta a punto de sumar 0",
                        "denominador": "Error, division por 0"}
 
         error_es_float={"numerador": "Ingrese un numerador diferente, debe ser entero",
@@ -86,9 +86,13 @@ def simplificado(fracc):
 
         nuevo_grande=nuevo_chico
         nuevo_chico=resto
+
+    numerador_final= fracc[0]//divisor
+    denominador_final= fracc[1]//divisor 
+
     
-    resultado= ( int(fracc[0]/divisor), int(fracc[1]/divisor) )
-    
+    resultado=(numerador_final, denominador_final)
+
     return resultado
     
 
@@ -126,7 +130,6 @@ def operar_fracciones(fracc1, operador, fracc2):
         denom_final= abs(denom_final)
 
     return (numer_final, denom_final)
-
 
 #
 # --------------- Termina la Logica -------------------------
